@@ -30,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* HEADER */
   header {
     display: flex;
     align-items: center;
@@ -43,54 +42,23 @@
     z-index: 100;
   }
 
-  .logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 3px;
-    color: var(--accent);
-  }
-
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--accent); }
   .logo span { color: var(--text); }
 
   nav {
-    display: flex;
-    gap: 4px;
-    background: var(--surface);
-    padding: 4px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
+    display: flex; gap: 4px; background: var(--surface);
+    padding: 4px; border-radius: 12px; border: 1px solid var(--border);
   }
 
   nav button {
-    background: none;
-    border: none;
-    color: var(--muted);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
+    background: none; border: none; color: var(--muted);
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
   }
+  nav button.active { background: var(--accent); color: #0e0e0e; }
+  nav button:hover:not(.active) { color: var(--text); background: var(--surface2); }
 
-  nav button.active {
-    background: var(--accent);
-    color: #0e0e0e;
-  }
-
-  nav button:hover:not(.active) {
-    color: var(--text);
-    background: var(--surface2);
-  }
-
-  /* MAIN */
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 32px 24px;
-  }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
 
   .section { display: none; }
   .section.active { display: block; animation: fadeIn 0.3s ease; }
@@ -100,526 +68,144 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* SECTION TITLE */
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 2px; margin-bottom: 8px; }
+  .section-sub { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
 
-  .section-sub {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 32px;
-  }
+  /* LEGEND */
+  .legend { display: flex; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .legend-dot.outline { background: transparent; border: 2px solid currentColor; }
 
   /* CALENDAR */
-  .calendar-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .calendar-header h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    flex: 1;
-    text-align: center;
-  }
+  .calendar-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+  .calendar-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; flex: 1; text-align: center; }
 
   .cal-nav {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
+    background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    width: 36px; height: 36px; border-radius: 8px; cursor: pointer;
+    font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s;
   }
-
   .cal-nav:hover { background: var(--surface2); border-color: var(--accent); }
 
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-  }
+  .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 32px; }
 
   .cal-day-name {
-    text-align: center;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    padding: 8px 0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    text-align: center; font-size: 11px; font-weight: 600; color: var(--muted);
+    padding: 8px 0; letter-spacing: 1px; text-transform: uppercase;
   }
 
   .cal-day {
-    aspect-ratio: 1;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    position: relative;
-    min-height: 52px;
-    gap: 3px;
+    aspect-ratio: 1; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; cursor: pointer; transition: all 0.2s;
+    min-height: 52px; gap: 4px; padding: 4px;
   }
-
   .cal-day:hover { border-color: var(--accent); background: var(--surface2); }
   .cal-day.empty { background: transparent; border-color: transparent; cursor: default; }
   .cal-day.today { border-color: var(--accent); }
+  .cal-day.rest-day { opacity: 0.45; }
 
-  .cal-day .day-num {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
+  .cal-day .day-num { font-size: 13px; font-weight: 600; line-height: 1; }
   .cal-day.today .day-num { color: var(--accent); }
 
-  .dot-row {
-    display: flex;
-    gap: 3px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  .dot-row { display: flex; gap: 3px; flex-wrap: wrap; justify-content: center; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .dot.entreno-plan { background: transparent; border: 1.5px solid var(--accent); }
+  .dot.comida-plan  { background: transparent; border: 1.5px solid var(--accent2); }
+  .dot.entreno-done { background: var(--accent); }
+  .dot.comida-done  { background: var(--accent2); }
 
-  .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+  /* GOAL CHART */
+  .goal-section {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px; margin-top: 8px;
   }
-
-  .dot.entreno { background: var(--accent); }
-  .dot.comida { background: var(--accent2); }
-  .dot.compras { background: var(--accent3); }
-
-  /* LEGEND */
-  .legend {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
+  .goal-section h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; margin-bottom: 20px; }
+  .goal-bar-row { margin-bottom: 18px; }
+  .goal-bar-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .goal-bar-label .name { font-size: 13px; font-weight: 600; }
+  .goal-bar-label .count { font-size: 12px; color: var(--muted); }
+  .goal-bar-label .pct { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; min-width: 52px; text-align: right; }
+  .goal-bar-track { height: 10px; background: var(--surface2); border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
+  .goal-bar-fill { height: 100%; border-radius: 5px; transition: width 0.6s ease; }
 
   /* MODAL */
   .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    animation: fadeIn 0.2s ease;
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(4px); animation: fadeIn 0.2s ease;
   }
-
   .modal {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    width: 90%;
-    max-width: 480px;
-    max-height: 85vh;
-    overflow-y: auto;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; width: 90%; max-width: 480px; max-height: 85vh; overflow-y: auto;
   }
-
-  .modal h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
-
-  .modal-section {
-    margin-bottom: 20px;
-  }
-
+  .modal h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; margin-bottom: 4px; }
+  .modal-plan-sub { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+  .modal-section { margin-bottom: 20px; }
   .modal-section label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
+    display: block; font-size: 12px; font-weight: 600; color: var(--muted);
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
   }
 
-  .tag-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
+  .check-row {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s;
+    user-select: none;
   }
+  .check-row:hover { border-color: var(--accent); }
+  .check-row.done-entreno { border-color: var(--accent); background: rgba(200,241,53,0.08); }
+  .check-row.done-comida  { border-color: var(--accent2); background: rgba(255,107,53,0.08); }
+  .check-row input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; flex-shrink: 0; }
+  .check-label .check-title { font-size: 14px; font-weight: 600; }
+  .check-label .check-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-  .tag {
-    padding: 6px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: var(--surface2);
+  textarea {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; color: var(--text); font-family: 'DM Sans', sans-serif;
+    font-size: 14px; padding: 12px; resize: vertical; transition: border-color 0.2s; outline: none;
   }
+  textarea:focus { border-color: var(--accent); }
 
-  .tag:hover { border-color: var(--accent); }
-  .tag.selected-entreno { background: var(--accent); color: #0e0e0e; border-color: var(--accent); font-weight: 600; }
-  .tag.selected-comida { background: var(--accent2); color: #fff; border-color: var(--accent2); font-weight: 600; }
-  .tag.selected-compras { background: var(--accent3); color: #0e0e0e; border-color: var(--accent3); font-weight: 600; }
-
-  textarea, input[type="text"], input[type="number"] {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    padding: 12px;
-    resize: vertical;
-    transition: border-color 0.2s;
-    outline: none;
-  }
-
-  textarea:focus, input:focus { border-color: var(--accent); }
-
-  .btn-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-
+  .btn-row { display: flex; gap: 10px; margin-top: 20px; }
   .btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+    flex: 1; padding: 12px; border-radius: 10px; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;
   }
-
   .btn-primary { background: var(--accent); color: #0e0e0e; }
   .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
   .btn-secondary { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
   .btn-secondary:hover { border-color: var(--accent); }
-  .btn-danger { background: var(--danger); color: #fff; }
 
-  /* DAY EVENTS LIST */
-  .event-item {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .event-item .event-type {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .event-item .event-note {
-    font-size: 13px;
-    color: var(--muted);
-    white-space: pre-wrap;
-  }
-
-  .event-item button {
-    background: none;
-    border: none;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: 16px;
-    padding: 2px;
-    transition: color 0.2s;
-    flex-shrink: 0;
-  }
-
-  .event-item button:hover { color: var(--danger); }
-
-  /* PROGRESION */
-  .prog-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
+  /* COMIDAS */
+  .meal-plan { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
   @media (max-width: 600px) {
-    .prog-grid { grid-template-columns: 1fr; }
+    .meal-plan { grid-template-columns: 1fr; }
     nav button { padding: 8px 10px; font-size: 12px; }
   }
-
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    transition: border-color 0.2s;
-  }
-
-  .stat-card:hover { border-color: var(--accent); }
-
-  .stat-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .stat-value {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: var(--accent);
-  }
-
-  .stat-unit {
-    font-size: 14px;
-    color: var(--muted);
-    margin-left: 4px;
-  }
-
-  .exercise-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 16px;
-  }
-
-  .exercise-table th {
-    text-align: left;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .exercise-table td {
-    padding: 12px;
-    border-bottom: 1px solid var(--border);
-    font-size: 14px;
-    vertical-align: middle;
-  }
-
-  .exercise-table tr:last-child td { border-bottom: none; }
-  .exercise-table tr:hover td { background: var(--surface2); }
-
-  .badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-  }
-
-  .badge-calistenia { background: rgba(200,241,53,0.15); color: var(--accent); }
-  .badge-pesas { background: rgba(255,107,53,0.15); color: var(--accent2); }
-
-  .form-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    margin-bottom: 24px;
-  }
-
-  .form-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 10px;
-    align-items: end;
-  }
-
-  @media (max-width: 600px) {
-    .form-row { grid-template-columns: 1fr 1fr; }
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  select {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    padding: 11px 12px;
-    outline: none;
-    cursor: pointer;
-    transition: border-color 0.2s;
-  }
-
-  select:focus { border-color: var(--accent); }
-
-  .chart-container {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    margin-bottom: 24px;
-  }
-
-  .chart-container h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-  }
-
-  canvas { width: 100% !important; }
-
-  .meal-plan {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
-  @media (max-width: 600px) { .meal-plan { grid-template-columns: 1fr; } }
-
-  .meal-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    transition: border-color 0.2s;
-  }
-
+  .meal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: border-color 0.2s; }
   .meal-card:hover { border-color: var(--accent2); }
-
-  .meal-card h4 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 2px;
-    color: var(--accent2);
-    margin-bottom: 12px;
-  }
-
-  .meal-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-
+  .meal-card h4 { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; color: var(--accent2); margin-bottom: 12px; }
+  .meal-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 14px; }
   .meal-item::before { content: '—'; color: var(--muted); flex-shrink: 0; }
 
-  .shopping-list {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-  }
+  .event-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 8px; }
+  .event-type { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .event-note { font-size: 13px; color: var(--muted); white-space: pre-wrap; }
 
-  .shopping-list h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    color: var(--accent3);
-  }
-
-  .shop-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
+  /* COMPRAS */
+  .shopping-list { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+  .shopping-list h3 { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; margin-bottom: 16px; color: var(--accent3); }
+  .shop-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.2s; }
   .shop-item:last-child { border-bottom: none; }
   .shop-item.done { opacity: 0.4; text-decoration: line-through; }
-
-  .shop-item input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--accent3);
-    cursor: pointer;
-  }
-
+  .shop-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent3); cursor: pointer; }
   .shop-item .shop-name { flex: 1; font-size: 14px; }
   .shop-item .shop-qty { font-size: 13px; color: var(--muted); }
+  .shop-category { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; padding: 12px 0 6px; }
 
-  .shop-category {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 12px 0 6px;
-  }
-
-  .empty-state {
-    text-align: center;
-    padding: 40px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
+  .empty-state { text-align: center; padding: 40px; color: var(--muted); font-size: 14px; }
   .empty-state .icon { font-size: 32px; margin-bottom: 10px; }
 
   ::-webkit-scrollbar { width: 6px; }
@@ -632,10 +218,9 @@
 <header>
   <div class="logo">FIT<span>TRACK</span></div>
   <nav>
-    <button class="active" onclick="showSection('calendario')">📅 Calendario</button>
-    <button onclick="showSection('progresion')">📈 Progresión</button>
-    <button onclick="showSection('comidas')">🍗 Comidas</button>
-    <button onclick="showSection('compras')">🛒 Compras</button>
+    <button class="active" onclick="showSection('calendario', this)">📅 Calendario</button>
+    <button onclick="showSection('comidas', this)">🍗 Comidas</button>
+    <button onclick="showSection('compras', this)">🛒 Compras</button>
   </nav>
 </header>
 
@@ -644,105 +229,77 @@
   <!-- CALENDARIO -->
   <section id="calendario" class="section active">
     <div class="section-title">CALENDARIO</div>
-    <div class="section-sub">Registrá entrenamientos, comidas y compras por día.</div>
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Entreno</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div> Comida especial</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--accent3)"></div> Compras</div>
-    </div>
-    <div class="calendar-header">
-      <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
-      <h2 id="cal-title"></h2>
-      <button class="cal-nav" onclick="changeMonth(1)">›</button>
-    </div>
-    <div class="calendar-grid" id="cal-grid"></div>
-  </section>
+    <div class="section-sub">Tu plan semanal — tachá lo que hiciste cada día.</div>
 
-  <!-- PROGRESION -->
-  <section id="progresion" class="section">
-    <div class="section-title">PROGRESIÓN</div>
-    <div class="section-sub">Registrá tus ejercicios y seguí tu evolución.</div>
-    <div class="prog-grid">
-      <div class="stat-card">
-        <div class="stat-label">Entrenamientos este mes</div>
-        <div class="stat-value" id="stat-entrenamientos">0</div>
+    <div class="legend">
+      <div class="legend-item" style="color:var(--accent)">
+        <div class="legend-dot outline" style="border-color:var(--accent)"></div> Entreno planeado
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Peso actual</div>
-        <div class="stat-value" id="stat-peso">—<span class="stat-unit">kg</span></div>
+      <div class="legend-item" style="color:var(--accent)">
+        <div class="legend-dot" style="background:var(--accent)"></div> Entreno hecho ✓
       </div>
-    </div>
-    <div class="form-card">
-      <h3>REGISTRAR EJERCICIO</h3>
-      <div class="form-row">
-        <div class="form-group"><label>Ejercicio</label><input type="text" id="ej-nombre" placeholder="Ej: Dominadas"></div>
-        <div class="form-group"><label>Tipo</label><select id="ej-tipo"><option value="calistenia">Calistenia</option><option value="pesas">Pesas</option></select></div>
-        <div class="form-group"><label>Series</label><input type="number" id="ej-series" placeholder="3" min="1"></div>
-        <div class="form-group"><label>Reps / Peso</label><input type="text" id="ej-reps" placeholder="8 / 20kg"></div>
+      <div class="legend-item" style="color:var(--accent2)">
+        <div class="legend-dot outline" style="border-color:var(--accent2)"></div> Comida planeada
       </div>
-      <div style="display:flex; gap:10px; align-items:end">
-        <div class="form-group" style="flex:1"><label>Fecha</label><input type="text" id="ej-fecha" placeholder="hoy"></div>
-        <button class="btn btn-primary" style="flex:0 0 auto; padding:11px 20px" onclick="addEjercicio()">+ Agregar</button>
+      <div class="legend-item" style="color:var(--accent2)">
+        <div class="legend-dot" style="background:var(--accent2)"></div> Comida hecha ✓
       </div>
     </div>
-    <div class="form-card" style="margin-bottom:24px">
-      <h3>REGISTRAR PESO CORPORAL</h3>
-      <div style="display:flex; gap:10px; align-items:end">
-        <div class="form-group" style="flex:1"><label>Peso (kg)</label><input type="number" id="peso-input" placeholder="75.5" step="0.1"></div>
-        <div class="form-group" style="flex:1"><label>Fecha</label><input type="text" id="peso-fecha" placeholder="hoy"></div>
-        <button class="btn btn-primary" style="flex:0 0 auto; padding:11px 20px" onclick="addPeso()">+ Guardar</button>
-      </div>
+
+    <div class="calendar-header">
+      <button class="cal-nav" onclick="changeMonth(-1)">&#8249;</button>
+      <h2 id="cal-title"></h2>
+      <button class="cal-nav" onclick="changeMonth(1)">&#8250;</button>
     </div>
-    <div class="chart-container">
-      <h3>EVOLUCIÓN DE PESO</h3>
-      <canvas id="pesoChart" height="200"></canvas>
-    </div>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden">
-      <table class="exercise-table">
-        <thead><tr><th>Ejercicio</th><th>Tipo</th><th>Series</th><th>Reps/Peso</th><th>Fecha</th><th></th></tr></thead>
-        <tbody id="ejercicios-tbody">
-          <tr><td colspan="6"><div class="empty-state"><div class="icon">💪</div>Todavía no registraste ejercicios.</div></td></tr>
-        </tbody>
-      </table>
+
+    <div class="calendar-grid" id="cal-grid"></div>
+
+    <div class="goal-section">
+      <h3>&#128202; OBJETIVOS DEL MES</h3>
+      <div id="goal-chart"></div>
     </div>
   </section>
 
   <!-- COMIDAS -->
   <section id="comidas" class="section">
     <div class="section-title">PLAN DE COMIDAS</div>
-    <div class="section-sub">Tu menú semanal de batch cooking — cocinás el domingo, comés toda la semana.</div>
+    <div class="section-sub">Tu menu semanal de batch cooking — cocinas el domingo, comes toda la semana.</div>
     <div class="meal-plan">
-      <div class="meal-card"><h4>🍗 OPCIÓN A — LUN / MIÉ / VIE</h4>
+      <div class="meal-card">
+        <h4>&#127831; OPCION A &mdash; LUN / MIE / VIE</h4>
         <div class="meal-item">Pollo al horno (muslos o pechugas)</div>
         <div class="meal-item">Arroz integral</div>
-        <div class="meal-item">Verduras asadas: zucchini, morrón, cebolla, berenjena</div>
-        <div class="meal-item">Condimento: ajo, pimentón, aceite de oliva</div>
+        <div class="meal-item">Verduras asadas: zucchini, morron, cebolla, berenjena</div>
+        <div class="meal-item">Condimento: ajo, pimenton, aceite de oliva</div>
       </div>
-      <div class="meal-card"><h4>🥩 OPCIÓN B — MAR / JUE</h4>
+      <div class="meal-card">
+        <h4>&#129385; OPCION B &mdash; MAR / JUE</h4>
         <div class="meal-item">Carne picada salteada</div>
         <div class="meal-item">Arroz integral</div>
         <div class="meal-item">Verduras salteadas: espinaca, chauchas, zanahoria</div>
-        <div class="meal-item">Condimento: ajo, cebollín, comino, sal</div>
+        <div class="meal-item">Condimento: ajo, cebollin, comino, sal</div>
       </div>
-      <div class="meal-card"><h4>🍳 DESAYUNO (todos los días)</h4>
+      <div class="meal-card">
+        <h4>&#127859; DESAYUNO (todos los dias)</h4>
         <div class="meal-item">Huevos revueltos o tortilla (2-3 huevos)</div>
-        <div class="meal-item">Fruta de estación</div>
-        <div class="meal-item">Café o té sin azúcar</div>
+        <div class="meal-item">Fruta de estacion</div>
+        <div class="meal-item">Cafe o te sin azucar</div>
       </div>
-      <div class="meal-card"><h4>🌙 CENA (liviana)</h4>
-        <div class="meal-item">Huevos / ensalada con atún</div>
+      <div class="meal-card">
+        <h4>&#127769; CENA (liviana)</h4>
+        <div class="meal-item">Huevos / ensalada con atun</div>
         <div class="meal-item">Sobras del almuerzo si quedaron</div>
-        <div class="meal-item">Evitar harinas y azúcares</div>
+        <div class="meal-item">Evitar harinas y azucares</div>
       </div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px">
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-bottom:16px;color:var(--accent)">⏱ ORDEN DE COCCIÓN (domingo ~90 min)</h3>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-bottom:16px;color:var(--accent)">&#9201; ORDEN DE COCCION (domingo ~90 min)</h3>
       <div style="display:flex;flex-direction:column;gap:12px">
-        <div class="event-item"><div><div class="event-type" style="color:var(--accent)">0:00 — Inicio</div><div class="event-note">Lavá y cortá todas las verduras. Precalentá el horno a 200°C.</div></div></div>
-        <div class="event-item"><div><div class="event-type" style="color:var(--accent)">0:15 — Horno</div><div class="event-note">Meté el pollo y las verduras para opción A. Ponés a hervir el arroz.</div></div></div>
-        <div class="event-item"><div><div class="event-type" style="color:var(--accent)">0:30 — Sartén</div><div class="event-note">Salteás la carne picada con ajo y cebollín. Salteás las verduras de opción B.</div></div></div>
-        <div class="event-item"><div><div class="event-type" style="color:var(--accent)">0:50 — Control</div><div class="event-note">Sacás el pollo y las verduras del horno. Revisás el arroz.</div></div></div>
-        <div class="event-item"><div><div class="event-type" style="color:var(--accent)">1:10 — Tuppers</div><div class="event-note">Dividís todo en 5 porciones. Etiquetás con el día. A la heladera/freezer.</div></div></div>
+        <div class="event-item"><div class="event-type" style="color:var(--accent)">0:00 &mdash; Inicio</div><div class="event-note">Lava y corta todas las verduras. Precalienta el horno a 200&#176;C.</div></div>
+        <div class="event-item"><div class="event-type" style="color:var(--accent)">0:15 &mdash; Horno</div><div class="event-note">Meta el pollo y las verduras para opcion A. Pon a hervir el arroz.</div></div>
+        <div class="event-item"><div class="event-type" style="color:var(--accent)">0:30 &mdash; Sarten</div><div class="event-note">Saltea la carne picada con ajo y cebollin. Saltea las verduras de opcion B.</div></div>
+        <div class="event-item"><div class="event-type" style="color:var(--accent)">0:50 &mdash; Control</div><div class="event-note">Saca el pollo y las verduras del horno. Revisa el arroz.</div></div>
+        <div class="event-item"><div class="event-type" style="color:var(--accent)">1:10 &mdash; Tuppers</div><div class="event-note">Divide todo en 5 porciones. Etiqueta con el dia. A la heladera/freezer.</div></div>
       </div>
     </div>
   </section>
@@ -750,9 +307,9 @@
   <!-- COMPRAS -->
   <section id="compras" class="section">
     <div class="section-title">LISTA DE COMPRAS</div>
-    <div class="section-sub">Para una semana — tachá lo que ya tenés.</div>
+    <div class="section-sub">Para una semana &mdash; tacha lo que ya tenes.</div>
     <div class="shopping-list">
-      <h3>🛒 COMPRAS DEL DOMINGO</h3>
+      <h3>&#128722; COMPRAS DEL DOMINGO</h3>
       <div id="shopping-list-content"></div>
     </div>
   </section>
@@ -762,45 +319,51 @@
 <!-- MODAL -->
 <div id="modal-overlay" class="modal-overlay" style="display:none" onclick="closeModalOutside(event)">
   <div class="modal">
-    <h3 id="modal-title">DÍA</h3>
-    <div id="modal-events"></div>
-    <div class="modal-section">
-      <label>Tipo de registro</label>
-      <div class="tag-row">
-        <div class="tag" id="tag-entreno" onclick="selectTag('entreno')">💪 Entreno</div>
-        <div class="tag" id="tag-comida" onclick="selectTag('comida')">🍗 Comida especial</div>
-        <div class="tag" id="tag-compras" onclick="selectTag('compras')">🛒 Compras</div>
-      </div>
-    </div>
+    <h3 id="modal-title">DIA</h3>
+    <div class="modal-plan-sub" id="modal-sub"></div>
+    <div class="modal-section" id="modal-checks"></div>
     <div class="modal-section">
       <label>Notas (opcional)</label>
-      <textarea id="modal-note" rows="3" placeholder="Ej: Hice 4 series de dominadas, llegué a 8 reps..."></textarea>
+      <textarea id="modal-note" rows="3" placeholder="Ej: Llegue a 8 reps en dominadas..."></textarea>
     </div>
     <div class="btn-row">
       <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
-      <button class="btn btn-primary" onclick="saveEvent()">Guardar</button>
+      <button class="btn btn-primary" onclick="saveModal()">Guardar</button>
     </div>
   </div>
 </div>
 
 <script>
-let state = JSON.parse(localStorage.getItem('fittrack') || '{}');
-if (!state.events) state.events = {};
-if (!state.ejercicios) state.ejercicios = [];
-if (!state.pesos) state.pesos = [];
+// ============ WEEKLY PLAN ============
+// 0=Dom, 1=Lun, 2=Mar, 3=Mie, 4=Jue, 5=Vie, 6=Sab
+const weeklyPlan = {
+  1: { entreno: 'Push Calistenia',  comida: 'Opcion A (pollo + arroz + verduras)' },
+  2: { entreno: 'Push Pesas',       comida: 'Opcion B (carne + arroz + verduras)' },
+  3: { entreno: 'Piernas',          comida: 'Opcion A (pollo + arroz + verduras)' },
+  4: { entreno: 'Push Pesas',       comida: 'Opcion B (carne + arroz + verduras)' },
+  5: { entreno: 'Pull Calistenia',  comida: 'Opcion A (pollo + arroz + verduras)' },
+  6: { comida: 'Batch cooking' },
+  0: { comida: 'Libre' },
+};
 
-let currentYear, currentMonth, selectedDate, selectedTag;
+// ============ STATE ============
+let state = JSON.parse(localStorage.getItem('fittrack') || '{}');
+if (!state.done) state.done = {};
+if (!state.shopChecked) state.shopChecked = {};
 
 function saveState() { localStorage.setItem('fittrack', JSON.stringify(state)); }
 
-function showSection(id) {
+// ============ NAV ============
+function showSection(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  event.currentTarget.classList.add('active');
-  if (id === 'progresion') renderProgresion();
+  if (btn) btn.classList.add('active');
   if (id === 'compras') renderCompras();
 }
+
+// ============ CALENDAR ============
+let currentYear, currentMonth, selectedDate, selectedWeekday;
 
 function initCalendar() {
   const now = new Date();
@@ -812,244 +375,257 @@ function initCalendar() {
 function changeMonth(dir) {
   currentMonth += dir;
   if (currentMonth > 11) { currentMonth = 0; currentYear++; }
-  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  if (currentMonth < 0)  { currentMonth = 11; currentYear--; }
   renderCalendar();
+}
+
+function getDateKey(y, m, d) {
+  return y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
 }
 
 function renderCalendar() {
   const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-  document.getElementById('cal-title').textContent = `${months[currentMonth]} ${currentYear}`;
+  document.getElementById('cal-title').textContent = months[currentMonth] + ' ' + currentYear;
+
   const grid = document.getElementById('cal-grid');
   grid.innerHTML = '';
-  ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'].forEach(d => {
-    const el = document.createElement('div');
+
+  ['Dom','Lun','Mar','Mie','Jue','Vie','Sab'].forEach(function(d) {
+    var el = document.createElement('div');
     el.className = 'cal-day-name';
     el.textContent = d;
     grid.appendChild(el);
   });
-  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-  const today = new Date();
-  for (let i = 0; i < firstDay; i++) {
-    const el = document.createElement('div');
-    el.className = 'cal-day empty';
-    grid.appendChild(el);
+
+  var firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  var today = new Date();
+
+  for (var i = 0; i < firstDay; i++) {
+    var empty = document.createElement('div');
+    empty.className = 'cal-day empty';
+    grid.appendChild(empty);
   }
-  for (let d = 1; d <= daysInMonth; d++) {
-    const el = document.createElement('div');
+
+  for (var d = 1; d <= daysInMonth; d++) {
+    var dateKey = getDateKey(currentYear, currentMonth, d);
+    var weekday = new Date(currentYear, currentMonth, d).getDay();
+    var plan = weeklyPlan[weekday] || {};
+    var done = state.done[dateKey] || {};
+
+    var el = document.createElement('div');
     el.className = 'cal-day';
-    const dateKey = `${currentYear}-${String(currentMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-    if (today.getFullYear()===currentYear && today.getMonth()===currentMonth && today.getDate()===d) el.classList.add('today');
-    const numEl = document.createElement('div');
+
+    var isToday = today.getFullYear() === currentYear && today.getMonth() === currentMonth && today.getDate() === d;
+    if (isToday) el.classList.add('today');
+    if (!plan.entreno && !plan.comida) el.classList.add('rest-day');
+
+    var numEl = document.createElement('div');
     numEl.className = 'day-num';
     numEl.textContent = d;
     el.appendChild(numEl);
-    const events = state.events[dateKey] || [];
-    if (events.length > 0) {
-      const dotRow = document.createElement('div');
+
+    if (plan.entreno || plan.comida) {
+      var dotRow = document.createElement('div');
       dotRow.className = 'dot-row';
-      const types = [...new Set(events.map(e => e.type))];
-      types.forEach(t => {
-        const dot = document.createElement('div');
-        dot.className = `dot ${t}`;
+      if (plan.entreno) {
+        var dot = document.createElement('div');
+        dot.className = done.entreno ? 'dot entreno-done' : 'dot entreno-plan';
         dotRow.appendChild(dot);
-      });
+      }
+      if (plan.comida) {
+        var dot2 = document.createElement('div');
+        dot2.className = done.comida ? 'dot comida-done' : 'dot comida-plan';
+        dotRow.appendChild(dot2);
+      }
       el.appendChild(dotRow);
     }
-    el.onclick = () => openModal(dateKey, d);
+
+    (function(dk, day, wd) {
+      el.onclick = function() { openModal(dk, day, wd); };
+    })(dateKey, d, weekday);
+
     grid.appendChild(el);
   }
+
+  renderGoalChart();
 }
 
-function openModal(dateKey, d) {
+// ============ MODAL ============
+function openModal(dateKey, d, weekday) {
   selectedDate = dateKey;
-  selectedTag = null;
-  document.querySelectorAll('.tag').forEach(t => t.className = 'tag');
-  document.getElementById('modal-note').value = '';
-  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-  document.getElementById('modal-title').textContent = `${d} de ${months[currentMonth]}`;
-  const eventsDiv = document.getElementById('modal-events');
-  eventsDiv.innerHTML = '';
-  const events = state.events[dateKey] || [];
-  if (events.length > 0) {
-    events.forEach((ev, idx) => {
-      const item = document.createElement('div');
-      item.className = 'event-item';
-      const colors = { entreno: 'var(--accent)', comida: 'var(--accent2)', compras: 'var(--accent3)' };
-      const labels = { entreno: '💪 Entreno', comida: '🍗 Comida', compras: '🛒 Compras' };
-      item.innerHTML = `<div><div class="event-type" style="color:${colors[ev.type]}">${labels[ev.type]}</div>${ev.note ? `<div class="event-note">${ev.note}</div>` : ''}</div><button onclick="deleteEvent('${dateKey}', ${idx})">✕</button>`;
-      eventsDiv.appendChild(item);
-    });
+  selectedWeekday = weekday;
+  var months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  var weekNames = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+  var plan = weeklyPlan[weekday] || {};
+  var done = state.done[dateKey] || {};
+
+  document.getElementById('modal-title').textContent = weekNames[weekday] + ' ' + d + ' de ' + months[currentMonth];
+  document.getElementById('modal-sub').textContent = plan.entreno ? 'Entreno: ' + plan.entreno : 'Dia de descanso';
+  document.getElementById('modal-note').value = done.note || '';
+
+  var checksDiv = document.getElementById('modal-checks');
+  checksDiv.innerHTML = '';
+
+  if (plan.entreno || plan.comida) {
+    var lbl = document.createElement('label');
+    lbl.textContent = 'Que hiciste hoy?';
+    checksDiv.appendChild(lbl);
+
+    if (plan.entreno) {
+      var row = document.createElement('div');
+      row.className = 'check-row' + (done.entreno ? ' done-entreno' : '');
+      row.id = 'check-row-entreno';
+      row.innerHTML = '<input type="checkbox" id="cb-entreno"' + (done.entreno ? ' checked' : '') + '>' +
+        '<div class="check-label"><div class="check-title">Entreno hecho</div><div class="check-sub">' + plan.entreno + '</div></div>';
+      row.onclick = function(e) {
+        if (e.target.tagName !== 'INPUT') document.getElementById('cb-entreno').click();
+        document.getElementById('check-row-entreno').className = 'check-row' + (document.getElementById('cb-entreno').checked ? ' done-entreno' : '');
+      };
+      checksDiv.appendChild(row);
+    }
+
+    if (plan.comida) {
+      var row2 = document.createElement('div');
+      row2.className = 'check-row' + (done.comida ? ' done-comida' : '');
+      row2.id = 'check-row-comida';
+      row2.innerHTML = '<input type="checkbox" id="cb-comida"' + (done.comida ? ' checked' : '') + ' style="accent-color:var(--accent2)">' +
+        '<div class="check-label"><div class="check-title">Comida hecha</div><div class="check-sub">' + plan.comida + '</div></div>';
+      row2.onclick = function(e) {
+        if (e.target.tagName !== 'INPUT') document.getElementById('cb-comida').click();
+        document.getElementById('check-row-comida').className = 'check-row' + (document.getElementById('cb-comida').checked ? ' done-comida' : '');
+      };
+      checksDiv.appendChild(row2);
+    }
+  } else {
+    checksDiv.innerHTML = '<div class="empty-state" style="padding:16px"><div class="icon">Dia de descanso &mdash; disfruta!</div></div>';
   }
+
   document.getElementById('modal-overlay').style.display = 'flex';
 }
 
 function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
 function closeModalOutside(e) { if (e.target === document.getElementById('modal-overlay')) closeModal(); }
 
-function selectTag(type) {
-  selectedTag = type;
-  document.querySelectorAll('.tag').forEach(t => t.className = 'tag');
-  document.getElementById(`tag-${type}`).className = `tag selected-${type}`;
+function saveModal() {
+  var plan = weeklyPlan[selectedWeekday] || {};
+  var cbEntreno = document.getElementById('cb-entreno');
+  var cbComida  = document.getElementById('cb-comida');
+  var note      = document.getElementById('modal-note').value.trim();
+
+  if (!state.done[selectedDate]) state.done[selectedDate] = {};
+  if (plan.entreno) state.done[selectedDate].entreno = cbEntreno ? cbEntreno.checked : false;
+  if (plan.comida)  state.done[selectedDate].comida  = cbComida  ? cbComida.checked  : false;
+  if (note) state.done[selectedDate].note = note;
+  else delete state.done[selectedDate].note;
+
+  saveState();
+  closeModal();
+  renderCalendar();
 }
 
-function saveEvent() {
-  if (!selectedTag) { alert('Seleccioná un tipo de registro primero.'); return; }
-  const note = document.getElementById('modal-note').value.trim();
-  if (!state.events[selectedDate]) state.events[selectedDate] = [];
-  state.events[selectedDate].push({ type: selectedTag, note });
-  saveState(); closeModal(); renderCalendar();
-}
+// ============ GOAL CHART ============
+function renderGoalChart() {
+  var container = document.getElementById('goal-chart');
+  container.innerHTML = '';
 
-function deleteEvent(dateKey, idx) {
-  state.events[dateKey].splice(idx, 1);
-  if (state.events[dateKey].length === 0) delete state.events[dateKey];
-  saveState(); closeModal(); renderCalendar();
-}
+  var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  var plannedEntrenos = 0, doneEntrenos = 0;
+  var plannedComidas = 0, doneComidas = 0;
 
-function addEjercicio() {
-  const nombre = document.getElementById('ej-nombre').value.trim();
-  const tipo = document.getElementById('ej-tipo').value;
-  const series = document.getElementById('ej-series').value.trim();
-  const reps = document.getElementById('ej-reps').value.trim();
-  const fechaInput = document.getElementById('ej-fecha').value.trim();
-  if (!nombre) { alert('Ingresá el nombre del ejercicio.'); return; }
-  const today = new Date();
-  const fecha = fechaInput || `${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`;
-  state.ejercicios.unshift({ nombre, tipo, series, reps, fecha });
-  saveState(); renderProgresion();
-  document.getElementById('ej-nombre').value = '';
-  document.getElementById('ej-series').value = '';
-  document.getElementById('ej-reps').value = '';
-  document.getElementById('ej-fecha').value = '';
-}
+  for (var d = 1; d <= daysInMonth; d++) {
+    var dateKey = getDateKey(currentYear, currentMonth, d);
+    var weekday = new Date(currentYear, currentMonth, d).getDay();
+    var plan = weeklyPlan[weekday] || {};
+    var done = state.done[dateKey] || {};
+    if (plan.entreno) { plannedEntrenos++; if (done.entreno) doneEntrenos++; }
+    if (plan.comida)  { plannedComidas++;  if (done.comida)  doneComidas++;  }
+  }
 
-function addPeso() {
-  const val = parseFloat(document.getElementById('peso-input').value);
-  const fechaInput = document.getElementById('peso-fecha').value.trim();
-  if (!val || val < 30 || val > 300) { alert('Ingresá un peso válido.'); return; }
-  const today = new Date();
-  const fecha = fechaInput || `${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`;
-  state.pesos.push({ fecha, value: val });
-  saveState(); renderProgresion();
-  document.getElementById('peso-input').value = '';
-  document.getElementById('peso-fecha').value = '';
-}
+  var bars = [
+    { label: 'Entrenamientos', done: doneEntrenos, total: plannedEntrenos, color: 'var(--accent)' },
+    { label: 'Comidas',        done: doneComidas,  total: plannedComidas,  color: 'var(--accent2)' },
+  ];
 
-function deleteEjercicio(idx) { state.ejercicios.splice(idx, 1); saveState(); renderProgresion(); }
-
-function renderProgresion() {
-  const now = new Date();
-  const monthKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
-  let count = 0;
-  Object.keys(state.events).forEach(k => {
-    if (k.startsWith(monthKey)) count += state.events[k].filter(e => e.type === 'entreno').length;
+  bars.forEach(function(bar) {
+    var pct = bar.total > 0 ? Math.round((bar.done / bar.total) * 100) : 0;
+    var row = document.createElement('div');
+    row.className = 'goal-bar-row';
+    row.innerHTML =
+      '<div class="goal-bar-label">' +
+        '<span class="name">' + bar.label + '</span>' +
+        '<span class="count">' + bar.done + ' / ' + bar.total + ' dias</span>' +
+        '<span class="pct" style="color:' + bar.color + '">' + pct + '%</span>' +
+      '</div>' +
+      '<div class="goal-bar-track">' +
+        '<div class="goal-bar-fill" style="width:' + pct + '%;background:' + bar.color + '"></div>' +
+      '</div>';
+    container.appendChild(row);
   });
-  document.getElementById('stat-entrenamientos').textContent = count;
-  const lastPeso = state.pesos.length > 0 ? state.pesos[state.pesos.length - 1].value : null;
-  document.getElementById('stat-peso').innerHTML = lastPeso ? `${lastPeso}<span class="stat-unit">kg</span>` : `—<span class="stat-unit">kg</span>`;
-  const tbody = document.getElementById('ejercicios-tbody');
-  if (state.ejercicios.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><div class="icon">💪</div>Todavía no registraste ejercicios.</div></td></tr>';
-  } else {
-    tbody.innerHTML = state.ejercicios.map((ej, i) => `<tr><td><strong>${ej.nombre}</strong></td><td><span class="badge badge-${ej.tipo}">${ej.tipo}</span></td><td>${ej.series||'—'}</td><td>${ej.reps||'—'}</td><td style="color:var(--muted);font-size:13px">${ej.fecha}</td><td><button onclick="deleteEjercicio(${i})" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='var(--muted)'">✕</button></td></tr>`).join('');
-  }
-  renderPesoChart();
 }
 
-function renderPesoChart() {
-  const canvas = document.getElementById('pesoChart');
-  const ctx = canvas.getContext('2d');
-  const W = canvas.offsetWidth || 600; const H = 200;
-  canvas.width = W; canvas.height = H;
-  ctx.clearRect(0, 0, W, H);
-  if (state.pesos.length < 2) {
-    ctx.fillStyle = '#444'; ctx.font = '14px DM Sans'; ctx.textAlign = 'center';
-    ctx.fillText('Registrá al menos 2 pesos para ver la evolución.', W/2, H/2); return;
-  }
-  const vals = state.pesos.map(p => p.value);
-  const min = Math.min(...vals) - 2; const max = Math.max(...vals) + 2;
-  const pad = { t: 20, r: 20, b: 30, l: 40 };
-  const cw = W - pad.l - pad.r; const ch = H - pad.t - pad.b;
-  const toX = i => pad.l + (i / (vals.length - 1)) * cw;
-  const toY = v => pad.t + ch - ((v - min) / (max - min)) * ch;
-  ctx.strokeStyle = '#2a2a2a'; ctx.lineWidth = 1;
-  for (let i = 0; i <= 4; i++) {
-    const y = pad.t + (i / 4) * ch;
-    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + cw, y); ctx.stroke();
-    ctx.fillStyle = '#555'; ctx.font = '11px DM Sans'; ctx.textAlign = 'right';
-    ctx.fillText((max - (i / 4) * (max - min)).toFixed(1), pad.l - 6, y + 4);
-  }
-  const grad = ctx.createLinearGradient(0, pad.t, 0, pad.t + ch);
-  grad.addColorStop(0, 'rgba(200,241,53,0.3)'); grad.addColorStop(1, 'rgba(200,241,53,0)');
-  ctx.beginPath(); ctx.moveTo(toX(0), toY(vals[0]));
-  vals.forEach((v, i) => { if (i > 0) ctx.lineTo(toX(i), toY(v)); });
-  ctx.lineTo(toX(vals.length - 1), pad.t + ch); ctx.lineTo(toX(0), pad.t + ch);
-  ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
-  ctx.beginPath(); ctx.strokeStyle = '#c8f135'; ctx.lineWidth = 2; ctx.lineJoin = 'round';
-  ctx.moveTo(toX(0), toY(vals[0]));
-  vals.forEach((v, i) => { if (i > 0) ctx.lineTo(toX(i), toY(v)); });
-  ctx.stroke();
-  vals.forEach((v, i) => { ctx.beginPath(); ctx.arc(toX(i), toY(v), 4, 0, Math.PI * 2); ctx.fillStyle = '#c8f135'; ctx.fill(); });
-  ctx.fillStyle = '#555'; ctx.font = '10px DM Sans'; ctx.textAlign = 'center';
-  state.pesos.forEach((p, i) => { if (i % Math.ceil(state.pesos.length / 6) === 0 || i === state.pesos.length - 1) ctx.fillText(p.fecha, toX(i), H - 5); });
-}
-
-const shoppingItems = [
-  { cat: '🥩 Proteínas', items: [
+// ============ COMPRAS ============
+var shoppingItems = [
+  { cat: 'Proteinas', items: [
     { name: 'Muslos de pollo sin piel', qty: '1.2 kg' },
     { name: 'Carne picada', qty: '600 g' },
     { name: 'Huevos', qty: '1 docena' },
-    { name: 'Atún en lata', qty: '3-4 latas' },
+    { name: 'Atun en lata', qty: '3-4 latas' },
   ]},
-  { cat: '🌾 Carbohidratos', items: [{ name: 'Arroz integral', qty: '500 g' }]},
-  { cat: '🥦 Verduras', items: [
+  { cat: 'Carbohidratos', items: [{ name: 'Arroz integral', qty: '500 g' }]},
+  { cat: 'Verduras', items: [
     { name: 'Zucchini', qty: '2 unidades' },
-    { name: 'Morrón rojo y verde', qty: '2 unidades' },
+    { name: 'Morron rojo y verde', qty: '2 unidades' },
     { name: 'Cebolla', qty: '2 unidades' },
     { name: 'Berenjena', qty: '1 unidad' },
     { name: 'Zanahoria', qty: '2 unidades' },
     { name: 'Chauchas', qty: '200 g' },
     { name: 'Espinaca', qty: '1 bolsa' },
   ]},
-  { cat: '🍎 Frutas', items: [{ name: 'Fruta de estación', qty: '1 kg' }]},
-  { cat: '🫙 Básicos de despensa', items: [
-    { name: 'Aceite de oliva', qty: '—' },
+  { cat: 'Frutas', items: [{ name: 'Fruta de estacion', qty: '1 kg' }]},
+  { cat: 'Basicos de despensa', items: [
+    { name: 'Aceite de oliva', qty: '--' },
     { name: 'Ajo', qty: '1 cabeza' },
-    { name: 'Pimentón', qty: '—' },
-    { name: 'Comino', qty: '—' },
-    { name: 'Sal y pimienta', qty: '—' },
+    { name: 'Pimenton', qty: '--' },
+    { name: 'Comino', qty: '--' },
+    { name: 'Sal y pimienta', qty: '--' },
   ]},
 ];
 
-if (!state.shopChecked) state.shopChecked = {};
-
 function renderCompras() {
-  const container = document.getElementById('shopping-list-content');
+  var container = document.getElementById('shopping-list-content');
   container.innerHTML = '';
-  shoppingItems.forEach(cat => {
-    const catEl = document.createElement('div');
-    catEl.className = 'shop-category'; catEl.textContent = cat.cat;
+  shoppingItems.forEach(function(cat) {
+    var catEl = document.createElement('div');
+    catEl.className = 'shop-category';
+    catEl.textContent = cat.cat;
     container.appendChild(catEl);
-    cat.items.forEach(item => {
-      const key = item.name;
-      const el = document.createElement('div');
-      el.className = `shop-item ${state.shopChecked[key] ? 'done' : ''}`;
-      const cb = document.createElement('input');
-      cb.type = 'checkbox'; cb.checked = !!state.shopChecked[key];
-      cb.onchange = () => { state.shopChecked[key] = cb.checked; saveState(); el.className = `shop-item ${cb.checked ? 'done' : ''}`; };
-      el.innerHTML = `<span class="shop-name">${item.name}</span><span class="shop-qty">${item.qty}</span>`;
+    cat.items.forEach(function(item) {
+      var key = item.name;
+      var el = document.createElement('div');
+      el.className = 'shop-item' + (state.shopChecked[key] ? ' done' : '');
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = !!state.shopChecked[key];
+      cb.onchange = function() {
+        state.shopChecked[key] = cb.checked;
+        saveState();
+        el.className = 'shop-item' + (cb.checked ? ' done' : '');
+      };
+      el.innerHTML = '<span class="shop-name">' + item.name + '</span><span class="shop-qty">' + item.qty + '</span>';
       el.insertBefore(cb, el.firstChild);
       container.appendChild(el);
     });
   });
-  const resetBtn = document.createElement('button');
-  resetBtn.className = 'btn btn-secondary'; resetBtn.style.marginTop = '16px';
+  var resetBtn = document.createElement('button');
+  resetBtn.className = 'btn btn-secondary';
+  resetBtn.style.cssText = 'margin-top:16px;flex:none;padding:10px 20px';
   resetBtn.textContent = 'Resetear lista';
-  resetBtn.onclick = () => { state.shopChecked = {}; saveState(); renderCompras(); };
+  resetBtn.onclick = function() { state.shopChecked = {}; saveState(); renderCompras(); };
   container.appendChild(resetBtn);
 }
 
+// ============ INIT ============
 initCalendar();
 renderCompras();
 </script>
